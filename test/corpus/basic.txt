@@ -1,0 +1,166 @@
+===========================
+Simple values
+===========================
+
+true
+---
+
+(source_file
+  (boolean))
+
+===========================
+Simple object
+===========================
+
+{"key": "value"}
+---
+
+(source_file
+  (object
+    (string)
+    (string)))
+
+===========================
+Simple array
+===========================
+
+[1, 2, 3]
+---
+
+(source_file
+  (array
+    (number)
+    (number)
+    (number)))
+
+===========================
+Empty object
+===========================
+
+{
+}
+---
+
+(source_file
+  (object))
+
+
+===========================
+Empty array
+===========================
+
+[
+]
+---
+
+(source_file
+  (array))
+
+===========================
+Complex object
+===========================
+
+{
+  "string": "value",
+  "number": 42.5,
+  "integer": -123,
+  "scientific": 1.23e+4,
+  "boolean": true,
+  "null": null,
+  "array": [1, 2, 3],
+  "object": {"nested": "value"}
+}
+---
+
+(source_file
+  (object
+    (string) (string)
+    (string) (number)
+    (string) (number)
+    (string) (number)
+    (string) (boolean)
+    (string) (null)
+    (string) (array
+      (number)
+      (number)
+      (number))
+    (string) (object
+      (string) (string))))
+
+===========================
+Number formats
+===========================
+
+{
+  "integer": 123,
+  "negative": -123,
+  "decimal": 123.456,
+  "scientific_pos": 1.23e+4,
+  "scientific_neg": 1.23e-4,
+  "zero": 0,
+  "leading_zero": 0.123
+}
+---
+
+(source_file
+  (object
+    (string) (number)
+    (string) (number)
+    (string) (number)
+    (string) (number)
+    (string) (number)
+    (string) (number)
+    (string) (number)))
+
+===========================
+Array with mixed types
+===========================
+
+[
+  123,
+  "string",
+  true,
+  null,
+  {"key": "value"},
+  [1, 2, 3]
+]
+---
+
+(source_file
+  (array
+    (number)
+    (string)
+    (boolean)
+    (null)
+    (object
+      (string) (string))
+    (array
+      (number)
+      (number)
+      (number))))
+
+===========================
+Deeply nested structure
+===========================
+
+{
+  "level1": {
+    "level2": {
+      "level3": {
+        "array": [
+          {"key": "value"}
+        ]
+      }
+    }
+  }
+}
+---
+
+(source_file
+  (object
+    (string) (object
+      (string) (object
+        (string) (object
+          (string) (array
+            (object
+              (string) (string))))))))
