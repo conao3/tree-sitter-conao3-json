@@ -4,7 +4,7 @@
 //! tree-sitter [Parser][], and then use the parser to parse some code:
 //!
 //! ```
-//! let code = r#"
+//! let code = r#"{}
 //! "#;
 //! let mut parser = tree_sitter::Parser::new();
 //! let language = tree_sitter_conao3_json::LANGUAGE;
